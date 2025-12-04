@@ -1,0 +1,90 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "PercoWebAPIHandler/1.0.0": {
+        "dependencies": {
+          "NewEmployeesService": "1.0.0",
+          "UnloadingEventsService": "1.0.0"
+        },
+        "runtime": {
+          "PercoWebAPIHandler.dll": {}
+        }
+      },
+      "ConfigurationService/1.0.0": {
+        "runtime": {
+          "ConfigurationService.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ConnectionService/1.0.0": {
+        "dependencies": {
+          "ConfigurationService": "1.0.0"
+        },
+        "runtime": {
+          "ConnectionService.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "NewEmployeesService/1.0.0": {
+        "dependencies": {
+          "ConfigurationService": "1.0.0",
+          "ConnectionService": "1.0.0"
+        },
+        "runtime": {
+          "NewEmployeesService.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UnloadingEventsService/1.0.0": {
+        "dependencies": {
+          "ConfigurationService": "1.0.0",
+          "ConnectionService": "1.0.0"
+        },
+        "runtime": {
+          "UnloadingEventsService.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PercoWebAPIHandler/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConfigurationService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConnectionService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NewEmployeesService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UnloadingEventsService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

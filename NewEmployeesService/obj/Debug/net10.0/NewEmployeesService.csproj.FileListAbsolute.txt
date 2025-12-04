@@ -1,0 +1,17 @@
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\bin\Debug\net10.0\NewEmployeesService.deps.json
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\bin\Debug\net10.0\NewEmployeesService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\bin\Debug\net10.0\NewEmployeesService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\bin\Debug\net10.0\ConfigurationService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\bin\Debug\net10.0\ConnectionService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\bin\Debug\net10.0\ConfigurationService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\bin\Debug\net10.0\ConnectionService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.csproj.AssemblyReference.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.AssemblyInfoInputs.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.AssemblyInfo.cs
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.csproj.CoreCompileInputs.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmplo.6A39D838.Up2Date
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\refint\NewEmployeesService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\ref\NewEmployeesService.dll

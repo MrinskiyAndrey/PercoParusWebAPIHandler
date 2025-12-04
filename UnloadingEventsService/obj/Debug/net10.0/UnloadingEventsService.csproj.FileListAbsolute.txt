@@ -1,0 +1,17 @@
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\bin\Debug\net10.0\UnloadingEventsService.deps.json
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\bin\Debug\net10.0\UnloadingEventsService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\bin\Debug\net10.0\UnloadingEventsService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\bin\Debug\net10.0\ConfigurationService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\bin\Debug\net10.0\ConnectionService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\bin\Debug\net10.0\ConfigurationService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\bin\Debug\net10.0\ConnectionService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.csproj.AssemblyReference.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.AssemblyInfoInputs.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.AssemblyInfo.cs
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.csproj.CoreCompileInputs.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\Unloadin.2D5FEFED.Up2Date
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\refint\UnloadingEventsService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\ref\UnloadingEventsService.dll

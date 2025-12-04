@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ConfigurationService/ConfigurationService.csproj" />
+  <Project Path="ConnectionService/ConnectionService.csproj" />
+  <Project Path="NewEmployeesService/NewEmployeesService.csproj" />
+  <Project Path="PercoWebAPIHandler/PercoWebAPIHandler.csproj" />
+  <Project Path="UnloadingEventsService/UnloadingEventsService.csproj" />
+</Solution>

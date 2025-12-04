@@ -1,0 +1,11 @@
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\bin\Debug\net10.0\ConfigurationService.deps.json
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\bin\Debug\net10.0\ConfigurationService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\bin\Debug\net10.0\ConfigurationService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.AssemblyInfoInputs.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.AssemblyInfo.cs
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.csproj.CoreCompileInputs.cache
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\refint\ConfigurationService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.pdb
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ref\ConfigurationService.dll
