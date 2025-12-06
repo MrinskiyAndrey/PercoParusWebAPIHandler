@@ -11,11 +11,13 @@ namespace ConnectionService
 {
     public static class Connection
     {
-        public static HttpClient client = new HttpClient();
+        public static HttpClient client = new HttpClient {BaseAddress = new Uri($"http://{Config.PercoWebHost}/api/") };
+        
 
-        public static async Task<string> GetPercoWebToken(string PercoWebHost, HttpClient client, string login, string password)
+        public static async Task<string> GetPercoWebToken(HttpClient client, string login, string password)
         {
-            string urlAuth = $"http://{PercoWebHost}/api/system/auth";
+            
+            string urlAuth = "system/auth";
 
             //Перевод логина и пароля в JSON формат
             var loginData = new { login, password };

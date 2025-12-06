@@ -10,7 +10,7 @@ namespace UnloadingEventsService.Controllers
     public static class EventsController
     {
 
-        public static async Task<string> GetRawEvents(string host, HttpClient client, string token)
+        public static async Task<string> GetRawEvents(HttpClient client, string token)
         {
             var columns = new List<Columns>
             {
@@ -24,11 +24,11 @@ namespace UnloadingEventsService.Controllers
                 type = "or",
                 rows = columns,
             };
-            var config = new Config();
-            var filtersJson = JsonSerializer.Serialize(filter);
-            var beginDatetime = DateTime.Now.AddDays(config.NumberOfDaysEvents * -1);
 
-            string urlGetEvents = $"http://{host}/api/eventsystem?token={token}&beginDatetime={beginDatetime}&filters={filtersJson}";
+            var filtersJson = JsonSerializer.Serialize(filter);
+            var beginDatetime = DateTime.Now.AddDays(Config.NumberOfDaysEvents * -1);
+
+            string urlGetEvents = $"eventsystem?token={token}&beginDatetime={beginDatetime}&filters={filtersJson}";
 
             try
             {

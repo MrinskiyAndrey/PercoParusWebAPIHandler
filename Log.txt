@@ -1,4 +1,1 @@
-[EVENT] 02.12.2025 11:35:48 : Ошибка очистки данных в ViewReaderController System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
-   at System.Collections.Generic.List`1.get_Item(Int32 index)
-   at NewEmployeesService.Models.Employee..ctor(List`1 line) in C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\Models\Employee.cs:line 19
-   at NewEmployeesService.Controllers.ViewReaderController.GetNewEmployee(String viewContent) in C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\Controllers\ViewReaderController.cs:line 50
+[EVENT] 06.12.2025 15:07:06 : Ошибка получения списка должностей в PositionController/GetPositionListFromPercoWeb: The JSON value could not be converted to System.Nullable`1[System.Boolean]. Path: $[0].is_removed | LineNumber: 0 | BytePositionInLine: 81.

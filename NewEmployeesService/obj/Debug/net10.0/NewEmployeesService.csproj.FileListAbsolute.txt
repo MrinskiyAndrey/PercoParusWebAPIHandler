@@ -15,3 +15,4 @@ C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\refint\NewEmployeesService.dll
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.pdb
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\ref\NewEmployeesService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\NewEmployeesService\obj\Debug\net10.0\NewEmployeesService.sourcelink.json

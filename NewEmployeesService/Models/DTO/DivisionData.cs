@@ -13,7 +13,7 @@ namespace NewEmployeesService.Models.DTO
 
         [JsonRequired]
         [JsonPropertyName("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; } = "(не определено)";
 
         [JsonPropertyName("parent_id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

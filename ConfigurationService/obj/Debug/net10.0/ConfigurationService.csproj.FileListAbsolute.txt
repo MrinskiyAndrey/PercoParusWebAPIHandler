@@ -9,3 +9,4 @@ C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\ne
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\refint\ConfigurationService.dll
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.pdb
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ref\ConfigurationService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\ConfigurationService\obj\Debug\net10.0\ConfigurationService.sourcelink.json

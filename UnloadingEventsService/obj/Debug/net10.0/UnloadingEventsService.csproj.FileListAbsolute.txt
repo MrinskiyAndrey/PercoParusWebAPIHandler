@@ -15,3 +15,4 @@ C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\refint\UnloadingEventsService.dll
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.pdb
 C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\ref\UnloadingEventsService.dll
+C:\Users\Bonds\source\repos\PercoWebAPIHandler\UnloadingEventsService\obj\Debug\net10.0\UnloadingEventsService.sourcelink.json
