@@ -8,6 +8,10 @@ namespace NewEmployeesService.Models.DTO
     // Главный класс, представляющий всю структуру JSON
     public class EmployeeData
     {
+        [JsonPropertyName("id")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public int? Id { get; set; }
+
         [JsonPropertyName("last_name")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? LastName { get; set; }

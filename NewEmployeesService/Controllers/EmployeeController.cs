@@ -3,6 +3,7 @@ using NewEmployeesService.Models;
 using NewEmployeesService.Models.DTO;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
@@ -30,10 +31,9 @@ namespace NewEmployeesService.Controllers
                     // Разделение данных на массив строк
                     var lines = viewRawContent.Replace("\r", string.Empty).Split('\n');
 
-                    // Удаление повторяющихся записей
-                    var uniqueLines = lines.Distinct().ToList();
+                    // Извлечение данных по сотруддникам 
                     List<string> employeeContent = new List<string>();
-                    foreach (string line in uniqueLines)
+                    foreach (string line in lines)
                     {
                         if (!string.IsNullOrEmpty(line))
                         {
@@ -46,7 +46,7 @@ namespace NewEmployeesService.Controllers
                                     employeeContent.Add(match.Groups[1].Value);
                                 }
                             }
-
+                            // Lобавление в список класса Employee
                             viewContent.Add(new Employee
                             {
                                 Position = employeeContent[0],
@@ -61,7 +61,13 @@ namespace NewEmployeesService.Controllers
                         }
                     }
 
-                    return viewContent;
+                    // Отсеивание старых записей
+                    var employeeList = viewContent
+                        .GroupBy(emp =>emp.TabelNumber)
+                        .Select(group => group.Last())
+                        .ToList();
+
+                    return employeeList;
                 }
                 catch (Exception ex)
                 {
@@ -120,11 +126,52 @@ namespace NewEmployeesService.Controllers
                     var content = new StringContent(employeeJson, Encoding.UTF8, "application/json");
                     var response = await client.PutAsync(url, content);
                     var responseBody = await response.Content.ReadAsStringAsync();
+
                     Console.WriteLine(responseBody);
+
+
                     var id = JsonSerializer.Deserialize<IdData>(responseBody);
                     
                 }
             }
+        }
+
+
+        public static async Task GetEmployeeById(HttpClient client, string token, int id)
+        {
+            var url = $"users/staff/{id}?token={token}";
+
+            var response = await client.GetAsync(url);
+            var responseBody = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(responseBody);
+        }
+
+     
+        public static async Task<List<EmployeeFullListData>?> GetAllEmployeesFromPerco(HttpClient client, string token)
+        {
+            var url = $"users/staff/fullList?token={token}";
+            try
+            {
+                var response = await client.GetAsync(url);
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var allEmployees = JsonSerializer.Deserialize<List<EmployeeFullListData>>(responseBody);
+
+                if(allEmployees != null)
+                {
+                    return allEmployees;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Log($"Ошибка получения всех списка всех сотрудников от PercoWeb в NewEmployeesService.Controllers.EmployeeController.GetAllEmployeesFromPerco: {ex.Message}");
+                return null;
+            }
+
         }
 
 

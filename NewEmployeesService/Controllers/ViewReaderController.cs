@@ -29,6 +29,20 @@ namespace NewEmployeesService.Controllers
             }
         }
        
+        public static void RemoveLines(string path, List<string>tabelNumbers)
+        {
+            try
+            {
+                string[] allLines = File.ReadAllLines(path);
 
+                //IEnumerable<string> filteredLines = allLines.Where(line => !line.ContainsAny(tabelNumbers, StringComparer.OrdinalIgnoreCase));
+
+                
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        } 
     }
 }
