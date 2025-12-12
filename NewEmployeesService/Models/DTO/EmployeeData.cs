@@ -5,11 +5,10 @@ using System.Text.Json.Serialization;
 
 namespace NewEmployeesService.Models.DTO
 {
-    // Главный класс, представляющий всю структуру JSON
     public class EmployeeData
     {
-        [JsonPropertyName("id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        //[JsonPropertyName("id")]
+        [JsonIgnore]
         public int? Id { get; set; }
 
         [JsonPropertyName("last_name")]

@@ -28,21 +28,45 @@ namespace NewEmployeesService.Controllers
                 return string.Empty;
             }
         }
-       
+
+        /// <summary>
+        /// Метод расширения который проверяет, содержит ли строка любой из указанных слов с учетом типа сравнения
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="words"></param>
+        /// <param name="comparisonType"></param>
+        /// <returns></returns>
+        private static bool ContainsAny(this string source, IEnumerable<string> words, StringComparison comparisonType)
+        {
+            
+            return words.Any(word => source.Contains(word, comparisonType));
+        }
+
+
+        /// <summary>
+        /// Метод удаляет строки из файла, содержащие указанные табельные номера
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="tabelNumbers"></param>
         public static void RemoveLines(string path, List<string>tabelNumbers)
         {
             try
             {
                 string[] allLines = File.ReadAllLines(path);
 
-                //IEnumerable<string> filteredLines = allLines.Where(line => !line.ContainsAny(tabelNumbers, StringComparer.OrdinalIgnoreCase));
+                IEnumerable<string> filteredLines = allLines.Where(line => !line.ContainsAny(tabelNumbers, StringComparison.OrdinalIgnoreCase));
 
-                
+                File.WriteAllLines(path, filteredLines);
             }
             catch (Exception ex)
             {
-                throw;
+                Logger.Log($"ViewReaderController.RemoveLines: {ex.Message}");
+               
             }
         } 
+
+
+
+
     }
 }

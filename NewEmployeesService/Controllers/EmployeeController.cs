@@ -114,25 +114,75 @@ namespace NewEmployeesService.Controllers
         }
 
 
+        public static async Task EditEmployee(HttpClient client, string token, EmployeeData employee)
+        {
+            var url = $"users/staff/{employee.Id}?token={token}";
+            try
+            {
+                var employeeJson = JsonSerializer.Serialize(employee);
+                var content = new StringContent(employeeJson, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(url, content);
+                var responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Редактирование сотрудника: " + responseBody + $"Content: \n{await content.ReadAsStringAsync()}");
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Ошибка изменения сотрудника в PercoWeb в NewEmployeesService.Controllers.EmployeeController.RechangeEmployee: {ex.Message}");
+            }
+        }
+
+
         public static async Task AddEmployee(HttpClient client, string token, List<EmployeeData> newEmployees)
         {
             var url = $"users/staff?token={token}";
 
+            var alreadyExistEmployees = new List<EmployeeData>();
+
             if (newEmployees.Count > 0)
             {
-                foreach (var employee in newEmployees)
+                try
                 {
-                    var employeeJson = JsonSerializer.Serialize(employee);
-                    var content = new StringContent(employeeJson, Encoding.UTF8, "application/json");
-                    var response = await client.PutAsync(url, content);
-                    var responseBody = await response.Content.ReadAsStringAsync();
+                    foreach (var employee in newEmployees)
+                    {
+                        var employeeJson = JsonSerializer.Serialize(employee);
+                        var content = new StringContent(employeeJson, Encoding.UTF8, "application/json");
+                        var response = await client.PutAsync(url, content);
+                        var responseBody = await response.Content.ReadAsStringAsync();
+                        if(responseBody.Contains("id"))
+                        {
+                            employee.Id = JsonSerializer.Deserialize<IdData>(responseBody)?.Id;
+                            Logger.Log($"Успешно добавлен новый сотрудник: '{employee.FirstName}' '{employee.LastName}' '{employee.MiddleName}',  табельный номер '{employee.TabelNumber}' в PercoWeb, id '{employee.Id}',");
 
-                    Console.WriteLine(responseBody);
+                        }
+                        else if (responseBody.Contains("Такой табельный номер уже существует"))
+                        {
+                            alreadyExistEmployees.Add(employee);
+                        }
+                        else
+                        {
+                            Logger.Log($"Неизвестная ошибка при добавлении нового сотрудника" +
+                                $" {employee.FirstName} {employee.LastName} {employee.MiddleName} табельный номер {employee.TabelNumber} " +
+                                $"в NewEmployeesService.Controllers.EmployeeController.AddEmployee: {responseBody}");
+                        }
 
-
-                    var id = JsonSerializer.Deserialize<IdData>(responseBody);
-                    
+                    }
+                    if(alreadyExistEmployees != null)
+                    {
+                        _ = UpdateEmployeeIds(client, token, alreadyExistEmployees);
+                        foreach(var employee in alreadyExistEmployees)
+                        {
+                            await EditEmployee(client, token, employee);
+                        }
+                        
+                    }
                 }
+                catch (Exception ex)
+                {
+
+                    Logger.Log($"Ошибка добавления новых сотрудников в PercoWeb в NewEmployeesService.Controllers.EmployeeController.AddEmployee: {ex.Message}");
+                }
+                
             }
         }
 
@@ -173,6 +223,32 @@ namespace NewEmployeesService.Controllers
             }
 
         }
+
+
+        public static async Task UpdateEmployeeIds(HttpClient client, string token, List<EmployeeData> employeeWithTabelExist)
+        {
+            
+            var allEmployeesFromPerco = await GetAllEmployeesFromPerco(client, token);
+            if(allEmployeesFromPerco != null)
+            {
+                var employeeEditList = allEmployeesFromPerco.Join(
+                employeeWithTabelExist,
+                full => full.TabelNumber,
+                empTabExist => empTabExist.TabelNumber,
+                (full, empTabExist) =>
+                {
+                    empTabExist.Id = full.Id;
+                    return empTabExist;
+                });
+            }
+
+
+
+        }
+
+
+
+
 
 
     }

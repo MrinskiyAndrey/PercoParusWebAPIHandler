@@ -71,6 +71,8 @@ namespace NewEmployeesService
                 {
                     await EmployeeController.AddEmployee(client, token, newEmployeesData);
                 }
+
+
             }
         }
     }

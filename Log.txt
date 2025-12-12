@@ -1,1 +1,1 @@
-[EVENT] 06.12.2025 15:07:06 : Ошибка получения списка должностей в PositionController/GetPositionListFromPercoWeb: The JSON value could not be converted to System.Nullable`1[System.Boolean]. Path: $[0].is_removed | LineNumber: 0 | BytePositionInLine: 81.
+[EVENT] 12.12.2025 12:52:51 : Токен не получен '0x1F' is an invalid start of a value. Path: $ | LineNumber: 0 | BytePositionInLine: 0.

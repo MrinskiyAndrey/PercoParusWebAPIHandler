@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PercoWebAPIHandler")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d2adbb1f68a86e1b27b67059faf05a7c100c486")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0e7eecf91c67e994d58a14b37467ccd0f6634e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("PercoWebAPIHandler")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PercoWebAPIHandler")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
