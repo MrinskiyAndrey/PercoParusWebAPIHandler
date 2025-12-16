@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UnloadingEventsService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0e7eecf91c67e994d58a14b37467ccd0f6634e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9edf5155099340a5af0be3eac9e15502dc045d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("UnloadingEventsService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UnloadingEventsService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

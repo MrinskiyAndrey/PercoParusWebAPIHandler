@@ -49,13 +49,13 @@ namespace NewEmployeesService.Controllers
                             // Lобавление в список класса Employee
                             viewContent.Add(new Employee
                             {
-                                Position = employeeContent[0],
-                                Division = employeeContent[1],
-                                TabelNumber = employeeContent[2],
-                                FirstName = employeeContent[3],
-                                LastName = employeeContent[4],
-                                MiddleName = employeeContent[5],
-                                
+                                Position = string.IsNullOrEmpty(employeeContent[0]) ? "(не определена)" : employeeContent[0],
+                                Division = string.IsNullOrEmpty(employeeContent[1]) ? "(не определено)" : employeeContent[1],
+                                TabelNumber = string.IsNullOrEmpty(employeeContent[2]) ? "(не определен)" : employeeContent[2],
+                                FirstName = string.IsNullOrEmpty(employeeContent[3]) ? "(не определена)" : employeeContent[3],
+                                LastName = string.IsNullOrEmpty(employeeContent[4]) ? "(не определено)" : employeeContent[4],
+                                MiddleName = string.IsNullOrEmpty(employeeContent[5]) ? "(не определено)" : employeeContent[5]
+
                             });
                             employeeContent.Clear();
                         }
@@ -114,8 +114,12 @@ namespace NewEmployeesService.Controllers
         }
 
 
-        public static async Task EditEmployee(HttpClient client, string token, EmployeeData employee)
+        public static async Task EditEmployee(HttpClient client, string token, EmployeeData employee, List<string>tabelListForDelete)
         {
+            if (employee.Id != null)
+            {
+
+            }
             var url = $"users/staff/{employee.Id}?token={token}";
             try
             {
@@ -123,8 +127,20 @@ namespace NewEmployeesService.Controllers
                 var content = new StringContent(employeeJson, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync(url, content);
                 var responseBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Редактирование сотрудника: " + responseBody + $"Content: \n{await content.ReadAsStringAsync()}");
-
+                
+                if ( responseBody.Contains("result"))
+                {
+                    Logger.Log($"Успешно изменен существующий сотрудник {employee.FirstName} {employee.LastName} {employee.MiddleName}" +
+                        $" табельный номер: '{employee.TabelNumber}' ID: '{employee.Id}'");
+                    if(employee.TabelNumber != null)
+                    {
+                        tabelListForDelete.Add(employee.TabelNumber);
+                    }
+                }
+                else
+                {
+                    Logger.Log($"Ошибка: \n{responseBody}");
+                }
             }
             catch (Exception ex)
             {
@@ -139,6 +155,8 @@ namespace NewEmployeesService.Controllers
 
             var alreadyExistEmployees = new List<EmployeeData>();
 
+            var tabelListForDelete = new List<string>();
+
             if (newEmployees.Count > 0)
             {
                 try
@@ -152,8 +170,16 @@ namespace NewEmployeesService.Controllers
                         if(responseBody.Contains("id"))
                         {
                             employee.Id = JsonSerializer.Deserialize<IdData>(responseBody)?.Id;
-                            Logger.Log($"Успешно добавлен новый сотрудник: '{employee.FirstName}' '{employee.LastName}' '{employee.MiddleName}',  табельный номер '{employee.TabelNumber}' в PercoWeb, id '{employee.Id}',");
 
+                            Logger.Log($"Успешно добавлен новый сотрудник: '{employee.FirstName}' '{employee.LastName}' '{employee.MiddleName}',  " +
+                                $"табельный номер: '{employee.TabelNumber}' в PercoWeb, id: '{employee.Id}',");
+
+                            if (employee.TabelNumber != null)
+                            {
+                                tabelListForDelete.Add(employee.TabelNumber);
+                            }
+                            
+                            
                         }
                         else if (responseBody.Contains("Такой табельный номер уже существует"))
                         {
@@ -162,17 +188,18 @@ namespace NewEmployeesService.Controllers
                         else
                         {
                             Logger.Log($"Неизвестная ошибка при добавлении нового сотрудника" +
-                                $" {employee.FirstName} {employee.LastName} {employee.MiddleName} табельный номер {employee.TabelNumber} " +
-                                $"в NewEmployeesService.Controllers.EmployeeController.AddEmployee: {responseBody}");
+                                $" {employee.FirstName} {employee.LastName} {employee.MiddleName} табельный номер {employee.TabelNumber} Должность: {employee.Position} " +
+                                $" в NewEmployeesService.Controllers.EmployeeController.AddEmployee: {responseBody}");
                         }
 
                     }
                     if(alreadyExistEmployees != null)
                     {
-                        _ = UpdateEmployeeIds(client, token, alreadyExistEmployees);
+                        await UpdateEmployeeIds(client, token, alreadyExistEmployees);
+
                         foreach(var employee in alreadyExistEmployees)
                         {
-                            await EditEmployee(client, token, employee);
+                            await EditEmployee(client, token, employee, tabelListForDelete);
                         }
                         
                     }
@@ -182,7 +209,7 @@ namespace NewEmployeesService.Controllers
 
                     Logger.Log($"Ошибка добавления новых сотрудников в PercoWeb в NewEmployeesService.Controllers.EmployeeController.AddEmployee: {ex.Message}");
                 }
-                
+                await ViewReaderController.RemoveLines(Config.PathToNewEmployeesView, tabelListForDelete);
             }
         }
 
@@ -229,27 +256,23 @@ namespace NewEmployeesService.Controllers
         {
             
             var allEmployeesFromPerco = await GetAllEmployeesFromPerco(client, token);
+
             if(allEmployeesFromPerco != null)
             {
-                var employeeEditList = allEmployeesFromPerco.Join(
-                employeeWithTabelExist,
-                full => full.TabelNumber,
-                empTabExist => empTabExist.TabelNumber,
-                (full, empTabExist) =>
+                foreach(var newEmp in employeeWithTabelExist)
                 {
-                    empTabExist.Id = full.Id;
-                    return empTabExist;
-                });
+                    foreach (var oldEmp in allEmployeesFromPerco)
+                    {
+                        if(newEmp.TabelNumber == oldEmp.TabelNumber)
+                        {
+                            newEmp.Id = oldEmp.Id;
+                        }
+                    }
+                }
+
             }
 
-
-
         }
-
-
-
-
-
 
     }
 }

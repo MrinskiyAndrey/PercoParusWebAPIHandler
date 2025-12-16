@@ -48,15 +48,16 @@ namespace NewEmployeesService.Controllers
         /// </summary>
         /// <param name="path"></param>
         /// <param name="tabelNumbers"></param>
-        public static void RemoveLines(string path, List<string>tabelNumbers)
+        public static async Task RemoveLines(string path, List<string>tabelNumbers)
         {
             try
             {
-                string[] allLines = File.ReadAllLines(path);
+                string[] allLines = File.ReadAllLines(path, Encoding.GetEncoding(1251));
 
                 IEnumerable<string> filteredLines = allLines.Where(line => !line.ContainsAny(tabelNumbers, StringComparison.OrdinalIgnoreCase));
 
-                File.WriteAllLines(path, filteredLines);
+
+                File.WriteAllLines(path, filteredLines, Encoding.GetEncoding(1251));
             }
             catch (Exception ex)
             {
